@@ -1,0 +1,259 @@
+// Color Variables
+
+$color-1: #26292e;
+$color-2: #2f3238;
+$color-3: #9197a2;
+$color-4: #b5fff7;
+
+// Slider settings
+
+$control-bar-background: $color-2;
+$control-background: $color-1;
+$counter-background: $color-3;
+$controler-color: $color-4;
+
+// Basic page setup, feel free to delete whatever
+// conflict with your theme's stylesheet
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+body {
+  background: $color-1;
+  margin: 0;
+}
+
+.container {
+  margin: 0;
+}
+
+/**
+* Hue Paper CSS Slider
+* By Agustealo
+* URI www.agustealo.com
+* GitHub https://github.com/agustealo/Hue-Paper-CSS-Slider 
+*/
+
+/* =+=+=+=+=+=+=+=++=+=+=+=+=+=+++++=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+## Hue Paper CSS Slider
+=+=+=+=+=+=+=+=++=+=+=+=+=+=+++++=+=+=+=+=+=+=+=+=+=+=+=+=+=+= */
+
+// The slide //
+
+// Wrap Slide and content
+.hue-slide {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  .hue-slide_items {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+  }
+  .hue-slide_item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    img {
+      min-width: 100%;
+      height: auto;
+      vertical-align: middle;
+    }
+  }
+
+  /* Next & previous buttons */
+  /* Slide counter content-container (1/4 etc) */
+  /* The indicators */
+
+  .hue-slide {
+    counter-reset: hue-counter;
+  }
+  input {
+    counter-increment: hue-counter;
+  }
+
+  /* The control bar */
+  .hue-control {
+    position: fixed;
+    width: 100%;
+    background: $control-bar-background;
+    height: 50px;
+    bottom: 0;
+    z-index: 2;
+    .control-wrapper {
+      width: 150px;
+      position: relative;
+      margin: 0 auto;
+      .hue-counter {
+        cursor: text;
+        width: 50px;
+        height: 50px;
+        float: left;
+        padding: 1em 0.5em;
+        background: $counter-background;
+        opacity: 0.4;
+        &::first-letter {
+          font-size: 1.5em;
+        }
+      }
+    }
+  }
+  .hue-slide_prev,
+  .hue-slide_next {
+    position: relative;
+    padding: 1em;
+    color: $controler-color;
+    background-color: $control-background;
+    top: 0;
+    width: 50px;
+    height: 50px;
+  }
+  .hue-slide_prev {
+    float: left;
+    &::before {
+      content: attr(data-prev);
+    }
+  }
+  .hue-slide_next {
+    float: right;
+    &::before {
+      content: attr(data-next);
+    }
+  }
+  .hue-slide_prev > label,
+  .hue-slide_next > label {
+    cursor: pointer;
+    display: block;
+    width: 50px;
+    height: 50px;
+    top: 0;
+    position: absolute;
+    z-index: 1;
+  }
+  .hue-slide_prev > label {
+    right: 0;
+  }
+  .hue-slide_next > label {
+    left: 0;
+  }
+  // Add keyboard toggle
+  .hue-slide_prev > label:hover,
+  .hue-slide_prev > label:focus,
+  .hue-slide_next > label:hover,
+  .hue-slide_next > label:focus {
+    opacity: 0.5 !important;
+  }
+  .indicator-wrapper {
+    margin-right: 1em;
+    position: absolute;
+    display: grid;
+    top: 45%;
+    right: 0;
+    width: 13.03px;
+    z-index: 2;
+    > label {
+      // Indicator hover cursor state to pointer
+      cursor: pointer;
+      color: $indicator-color;
+      &::before {
+        // Indicator Icons
+        content: attr(data-indicator);
+      }
+    }
+  }
+  > input[type="radio"] {
+    // Hide radio buttons
+    position: absolute;
+    display: none;
+    left: 0;
+    top: 0;
+
+    // The slide CSS logic.. if there is such a thing, lol //
+
+    // The follwing uses the .hue-slide_prev and .hue-slide_next class to
+    // show/hide the associated slide.
+    &:nth-child(1):checked ~ .hue-control .hue-slide_prev > label:nth-child(4),
+    &:nth-child(2):checked ~ .hue-control .hue-slide_prev > label:nth-child(1),
+    &:nth-child(3):checked ~ .hue-control .hue-slide_prev > label:nth-child(2),
+    &:nth-child(4):checked ~ .hue-control .hue-slide_prev > label:nth-child(3),
+    &:nth-child(1):checked ~ .hue-control .hue-slide_next > label:nth-child(2),
+    &:nth-child(2):checked ~ .hue-control .hue-slide_next > label:nth-child(3),
+    &:nth-child(3):checked ~ .hue-control .hue-slide_next > label:nth-child(4),
+    &:nth-child(4):checked ~ .hue-control .hue-slide_next > label:nth-child(1) {
+      display: block;
+      z-index: 2;
+    }
+
+    // Hide none active slide items
+    &:checked ~ .hue-slide_items .hue-slide_item {
+      display: none;
+    }
+
+    &:nth-child(1):checked ~ .hue-slide_items .hue-slide_item:nth-child(1),
+    &:nth-child(2):checked ~ .hue-slide_items .hue-slide_item:nth-child(2),
+    &:nth-child(3):checked ~ .hue-slide_items .hue-slide_item:nth-child(3),
+    &:nth-child(4):checked ~ .hue-slide_items .hue-slide_item:nth-child(4) {
+      display: block;
+      -webkit-animation-name: fade;
+      -webkit-animation-duration: 2s;
+      animation-name: fade;
+      animation-duration: 2s;
+    }
+    // Hide inactive counter text
+    &:checked ~ .hue-control .hue-counter {
+      display: none;
+    }
+    // Show active Count in counter
+    &:nth-child(1):checked ~ .hue-control .count-1,
+    &:nth-child(2):checked ~ .hue-control .count-2,
+    &:nth-child(3):checked ~ .hue-control .count-3,
+    &:nth-child(4):checked ~ .hue-control .count-4 {
+      display: block;
+    }
+
+    /* The indicator */
+    &:nth-child(1):checked ~ .indicator-wrapper > label:nth-child(1),
+    &:nth-child(2):checked ~ .indicator-wrapper > label:nth-child(2),
+    &:nth-child(3):checked ~ .indicator-wrapper > label:nth-child(3),
+    &:nth-child(4):checked ~ .indicator-wrapper > label:nth-child(4) {
+      color: $controler-color;
+      cursor: pointer;
+      &::before {
+        content: attr(data-indicator);
+      }
+    }
+  }
+}
+
+/* Fading animation */
+
+@-webkit-keyframes fade {
+  0% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
