@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <!-->
+
+<!--
+ /**
+ * Hue Paper CSS Slider
+ * By Agustealo
+ * URI www.agustealo.com
+ * GitHub https://github.com/agustealo/Hue-Paper-CSS-Slider 
+ */
+ -->
+
+<html class="no-js">
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="hue-slide">
+        <input type="radio" id="hue-slide-1" name="hue-slide[]" checked />
+        <input type="radio" id="hue-slide-2" name="hue-slide[]" />
+        <input type="radio" id="hue-slide-3" name="hue-slide[]" />
+        <input type="radio" id="hue-slide-4" name="hue-slide[]" />
+        <div class="hue-control">
+          <div class="control-wrapper">
+            <!-- Previous Button-->
+            <div class="hue-slide_prev" data-prev="&#9665;">
+              <label for="hue-slide-1"></label>
+              <label for="hue-slide-2"></label>
+              <label for="hue-slide-3"></label>
+              <label for="hue-slide-4"></label>
+            </div>
+            <!-- Counter area-->
+            <div class="hue-counter count-1">1/4</div>
+            <div class="hue-counter count-2">2/4</div>
+            <div class="hue-counter count-3">3/4</div>
+            <div class="hue-counter count-4">4/4</div>
+            <!-- Next Button-->
+            <div class="hue-slide_next" data-next="&#9655;">
+              <label for="hue-slide-1"></label>
+              <label for="hue-slide-2"></label>
+              <label for="hue-slide-3"></label>
+              <label for="hue-slide-4"></label>
+            </div>
+          </div>
+        </div>
+        <!-- Indicator-->
+        <div class="indicator-wrapper">
+          <label for="hue-slide-1" data-indicator="&#9635;"></label>
+          <label for="hue-slide-2" data-indicator="&#9635;"></label>
+          <label for="hue-slide-3" data-indicator="&#9635;"></label>
+          <label for="hue-slide-4" data-indicator="&#9635;"></label>
+        </div>
+        <!-- Slides-->
+        <ul class="hue-slide_items">
+          <li class="hue-slide_item">
+            <img src="https://raw.githubusercontent.com/agustealo/paper-project-assets/master/images/graphics/hue-slider-img-1.jpg"/>
+            <div class="hue_content"><div>
+              <header class="entry-header">
+                <h1 class="entry-title">Hue Slider</h1>
+              </header>
+              <p>
+                Hue Paper CSS Slider, this page is to demonstrate my Awesome features.
+                </p><ul>
+                  <li>I am lightweight</li>
+                  <li>Independant of third party bloats</li>
+                  <li>Easy to setup and use</li>
+                </ul>
+              <p></p>
+              <input class="hue-button" onclick="window.location.href = '#hue-container'" type="button" value="Read More">
+            </div></div>
+          </li>
+          <li class="hue-slide_item">
+            <img src="https://raw.githubusercontent.com/agustealo/paper-project-assets/master/images/graphics/hue-slider-img-2.jpg"/>
+            <div class="hue_content"><div>
+              <header class="entry-header">
+                <h1 class="entry-title">Easy Setup</h1>
+              </header>
+              <p>
+                Easy to setup and get up and running in no time.
+                Just add the CSS and your content to the HTML markup.
+              </p>
+              <input class="hue-button" onclick="window.location.href = '#hue-setup'" type="button" value="Read More">
+            </div></div>
+          </li>
+          <li class="hue-slide_item">
+            <img src="https://raw.githubusercontent.com/agustealo/paper-project-assets/master/images/graphics/hue-slider-img-3.jpg"/>
+             <div class="hue_content"><div>
+                <header class="entry-header">
+                  <h1 class="entry-title">I am Hue</h1>
+                </header>
+                <p>
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+                <input class="hue-button" onclick="window.location.href = '#'" type="button" value="Read More">
+              </div></div>
+          </li>
+          <li class="hue-slide_item">
+            <img src="https://raw.githubusercontent.com/agustealo/paper-project-assets/master/images/graphics/hue-slider-img-4.jpg"/>
+            <div class="hue_content">
+              <div>
+              <header class="entry-header">
+                <h1 class="entry-title">Go Hue Team</h1>
+              </header>
+              <p>
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                laboris nisi ut aliquip ex ea commodo consequat.
+              </p>
+              <input class="hue-button" onclick="window.location.href = '#'" type="button" value="Read More">
+            </div></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
